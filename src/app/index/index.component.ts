@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, animate, style, group, query, transition } from '@angular/animations';
-import * as Player from '@vimeo/player';
+import Vimeo from '@vimeo/player';
 
 @Component({
   selector: 'app-index',
@@ -31,18 +31,23 @@ export class IndexComponent implements OnInit {
     if (this.innerWidth < 800) {
       this.isMobile = true;
     }
-
-    var iframe = document.querySelector('iframe');
-    var player = new Player(iframe);
-
-    player.on('play', () => {
-      console.log(this.isMobile);
+    setInterval(() => {
       if (this.isMobile) {
         this.hideLogo = true;
       }
-      console.log('played');
-    });
+    }, 3000);
 
+    var iframe = document.querySelector('iframe');
+    var player = new Vimeo(iframe);
+    //
+    // player.on('play', () => {
+    //   console.log(this.isMobile);
+    //   if (this.isMobile) {
+    //     this.hideLogo = true;
+    //   }
+    //   console.log('played');
+    // });
+    //
     player.on('ended', () => {
       if (this.isMobile) {
         this.hideLogo = false;
