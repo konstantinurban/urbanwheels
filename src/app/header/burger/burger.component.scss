@@ -1,0 +1,72 @@
+@import 'variables';
+@import 'mixins';
+$burgerWidth: 40px;
+$burgerBarHeight: 1px;
+
+.burger-menu {
+  width: 67px;
+  height: 60px;
+  padding: 5px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 200;
+  top: 0px;
+  left: 0px;
+
+  .burger-container {
+    position: relative;
+
+    .burger-inner {
+      position: absolute;
+      width: $burgerWidth;
+      height: 3px;
+      left: 10px;
+      top: 15px;
+      transition: border-color 0.2s ease-in 0.2s;
+      background-color: #000;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 10px;
+        width: $burgerWidth;
+        height: 3px;
+        transition: top 0.2s ease-in 0.3s, transform ease-in 0.2s;
+        background-color: #000;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 20px;
+        width: $burgerWidth;
+        height: 3px;
+        transition: top 0.2s ease-in 0.3s, transform ease-in 0.2s;
+        background-color: #000;
+      }
+    }
+  }
+
+  &.active .burger-container .burger-inner {
+    border-color: transparent;
+    background-color: unset;
+    transition: border-color ease-in 0.1s;
+  }
+
+  &.active .burger-container .burger-inner::before {
+    top: -$burgerBarHeight;
+    transform: rotate(-45deg);
+    transition: top ease-out 0.2s, transform 0.2s ease-out 0.3s;
+    background-color: #fff;
+  }
+
+  &.active .burger-container .burger-inner::after {
+    top: -$burgerBarHeight;
+    transform: rotate(45deg);
+    transition: top ease-out 0.2s, transform 0.2s ease-out 0.3s;
+    background-color: #fff;
+  }
+  @include breakpoint(1000px) {
+    display: none;
+  }
+}

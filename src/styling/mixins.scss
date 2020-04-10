@@ -1,0 +1,79 @@
+@mixin full-width() {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+@mixin listreset() {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    &>li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@mixin sprite($image, $position: center, $size: contain, $repeat: no-repeat) {
+    background-image: url($image);
+    background-position: $position;
+    background-size: $size;
+    background-repeat: no-repeat;
+}
+
+@mixin fwbg($color) {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        display: block;
+        left: -200%;
+        right: -200%;
+        top: 0;
+        bottom: 0;
+        background-color: $color;
+        content: '';
+    }
+
+    &>* {
+        position: relative;
+    }
+}
+
+@function rem($px) {
+    @return ($px / $text-size-desktop) * 1rem;
+}
+
+@mixin breakpoint($breakpoint) {
+    @media only screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin tablet() {
+    @include breakpoint($tablet) {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @include breakpoint($desktop) {
+        @content;
+    }
+}
+
+@mixin wide() {
+    @include breakpoint($wide) {
+        @content;
+    }
+}
+
+@mixin wideL() {
+    @include breakpoint($wide-l) {
+        @content;
+    }
+}

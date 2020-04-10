@@ -1,0 +1,52 @@
+<section class="contact-section">
+  <div class="contact-left page-title">
+    <p>{{pageTitle}}</p>
+  </div>
+  <div class="contact-right">
+    <div class="contact-text main-text">
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit.
+        Bona autem corporis huic sunt, quod posterius posui, similiora. Prave,
+        nequiter, turpiter cenabat; Sed quid sentiat, non videtis. Torquatus,
+      </p>
+      <form action="https://formsubmit.io/send/b139e854-4098-49f0-999a-73563fd8accc" method="post" [formGroup]="contactForm" (ngSubmit)="onSubmit()" [ngClass]="{'form-close': !formShown}">
+        <div class="contact__form">
+          <div class="contact__form--group">
+            <label for="name"><span class="madatory">*</span> Name:</label>
+            <input id="name" type="text" name="Name" formControlName="name" required [ngClass]="{'is-invalid' : submitted && formFields.name.errors}">
+            <input name="_formsubmit_id" type="text" style="display:none">
+            <div *ngIf="submitted && formFields.name.errors">
+              <div *ngIf="formFields.name.errors.required" class="contact__form--error">Please enter your name</div>
+            </div>
+          </div>
+          <div class="contact__form--group">
+            <label for="email"><span class="madatory">*</span> Email:</label>
+            <input id="email" type="email" name="Email" formControlName="email" required required [ngClass]="{'is-invalid' : submitted && formFields.message.errors}">
+            <input name="_formsubmit_id" type="text" style="display:none">
+            <div *ngIf="submitted && formFields.email.errors">
+              <div *ngIf="formFields.email.errors.required" class="contact__form--error">Please enter an email address.</div>
+              <div *ngIf="formFields.email.errors.email" class="contact__form--error">Please enter a valid email address</div>
+            </div>
+          </div>
+          <div class="contact__form--group">
+            <label for="message"><span class="madatory">*</span> Message:</label>
+            <textarea id="message" name="Message" formControlName="message" required required [ngClass]="{'is-invalid' : submitted && formFields.message.errors}"></textarea>
+            <textarea name="_formsubmit_id" type="text" style="display:none"></textarea>
+            <div *ngIf="submitted && formFields.message.errors">
+              <div *ngIf="formFields.message.errors.required" class="contact__form--error">Please enter your message.</div>
+            </div>
+          </div>
+          <input class="contact__submit--button" type="submit" value="">
+        </div>
+      </form>
+      <div class="contact__form--submitted" [ngClass]="{'submitted-open': submitted, 'hidden' : hiddenSubmit}">
+          <p>Thank you for contacting us <span>{{ contactName }}</span>.</p>
+          <figure>
+            <img src="../../assets/images/animation.gif" alt="Royal Enfield animation by https://dribbble.com/shots/4574971-Royal-Enfield">
+          </figure>
+          <p>See you on the road soon!</p>
+      </div>
+    </div>
+  </div>
+</section>

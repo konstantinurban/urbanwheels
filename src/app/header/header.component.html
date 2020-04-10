@@ -1,0 +1,22 @@
+<header>
+  <div class="header-wrapper" [class.nav--open]="menu.isMenuClosed">
+    <div class="header-left">
+      <ul>
+        <li routerLinkActive="activeRoute"><a routerLink="about" (click)="closeMenu()">About</a></li>
+        <li routerLinkActive="activeRoute"><a routerLink="tours" (click)="closeMenu()">Tours</a></li>
+        <li routerLinkActive="activeRoute"><a routerLink="gallery" (click)="closeMenu()">Gallery</a></li>
+        <li routerLinkActive="activeRoute"><a routerLink="contact" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
+    <div class="header-right">
+      <a routerLink="/">
+        <!-- <figure>
+          <img src="assets/icons/urbanwheels-logo-horizontal.png" alt="urbanwheels logo">
+        </figure> -->
+        <h1 class="urbanwheels-logo">
+            urbanwheels
+        </h1>
+      </a>
+    </div>
+  </div>
+</header>

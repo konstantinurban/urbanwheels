@@ -1,0 +1,37 @@
+@import 'mixins';
+
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  background-color: #fff;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  transition: background-color;
+  transition-delay: .1s;
+
+  &.nav--open {
+    background-color: transparent;
+  }
+
+  i {
+    margin-left: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  @include breakpoint(800px) {
+    width: 50%;
+  }
+}

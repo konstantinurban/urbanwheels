@@ -1,0 +1,121 @@
+@import 'variables';
+@import 'mixins';
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  z-index: 100;
+
+  .header-wrapper.nav--open {
+    bottom: -100%;
+    transition: bottom 0.4s;
+
+    .header-left {
+      opacity: 1;
+      bottom: 5%;
+      transition: opacity 0.8s;
+      transition-delay: 0.2s;
+    }
+  }
+
+  .header-wrapper {
+    position: fixed;
+    background-color: rgba(31,31,31, .97);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 100%;
+    transition: bottom 0.4s;
+    z-index: 1;
+
+    li {
+      @include listreset();
+      font-size: 45px;
+      padding: 3px;
+    }
+
+    a {
+      text-decoration: none;
+      font-family: $font-mont;
+      color: #fff;
+    }
+
+    .header-left {
+      position: fixed;
+      z-index: 1;
+      bottom: -100%;
+      opacity: 0;
+      transition: opacity 0.2s, bottom 0s 1s;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: center;
+
+      h1.urbanwheels-logo {
+        color: #000;
+        text-align: center;
+        font-family: $font-odi;
+        margin-top: 12px;
+        font-size: 35px;
+        letter-spacing: 0.7px;
+      }
+    }
+    @include breakpoint(800px) {
+      width: 50%;
+    }
+    @include breakpoint(1000px) {
+      background: #fff;
+      position: static;
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      top: 20px;
+      width: 100%;
+
+      li {
+        @include listreset();
+        background-image: linear-gradient(to top, yellow 50%, transparent 50%);
+        background-size: 100% 200%;
+        background-position: top;
+        transition: background-position 0.2s ease-in-out;
+        font-size: 25px;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 20px;
+      }
+
+      li:hover {
+        background-position: bottom;
+      }
+
+      li.activeRoute {
+        background-image: linear-gradient(to top, yellow 50%, transparent 50%);
+        background-size: 100% 200%;
+        background-position: bottom;
+      }
+
+      a {
+        color: #000;
+      }
+
+      .header-left,
+      .header-right {
+        width: 50%;
+        position: static;
+        background-color: unset;
+        opacity: 1;
+      }
+    }
+  }
+  @include breakpoint(800px) {
+    width: 50%;
+    height: 90px;
+    z-index: 2;
+  }
+}
