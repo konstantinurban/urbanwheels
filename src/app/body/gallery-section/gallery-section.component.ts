@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { imgArray } from './gallery-data.json';
 declare let Swiper: any;
 declare let imagesLoaded: any;

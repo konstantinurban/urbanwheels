@@ -55,7 +55,6 @@
               ]
             },
             "scripts": [
-              "./node_modules/swiper/js/swiper.js"
             ]
           },
           "configurations": {
