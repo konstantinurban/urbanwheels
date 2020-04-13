@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 import { imgArray } from './gallery-data.json';
+import { ContentfulService } from '../../_services/contentful.service';
+import { Entry } from 'contentful';
 declare let Swiper: any;
 declare let imagesLoaded: any;
 
@@ -13,12 +15,19 @@ declare let imagesLoaded: any;
 export class GallerySectionComponent implements OnInit {
   @HostBinding('class') class = 'app-gallery-section';
   imageArray: any[] = [];
+  galleryImages: Entry<any>[] = [];
 
-  constructor() {
+
+  constructor(
+    private contentfulService: ContentfulService
+  ) {
     this.imageArray = imgArray;
   }
 
   ngOnInit() {
+    this.contentfulService.getGalleryImages()
+      .then(images => this.galleryImages = images)
+      .then(images => console.log(this.galleryImages));
     imagesLoaded(document.querySelector('.gallery-section'), function(instance) {
       console.log('Images loaded > swiper start');
       var galleryThumbs = new Swiper('.gallery-thumbs', {

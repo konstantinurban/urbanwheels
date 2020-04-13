@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, HostBinding } from '@angular/core';
 import { PageTitleService } from '../../_services/page-title.service';
 import { FormsubmitService } from '../../_services/formsubmit.service';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { ContentfulService } from '../../_services/contentful.service';
 
 @Component({
   selector: 'app-contact-section',
@@ -16,14 +17,22 @@ export class ContactSectionComponent implements OnInit {
   pageTitle: string;
   contactForm: FormGroup;
   submitted = false;
+  contactImageUrl: any;
+  contactImageAlt: any;
 
   constructor(
     public page: PageTitleService,
     private formBuilder: FormBuilder,
-    private formSubmit: FormsubmitService
+    private formSubmit: FormsubmitService,
+    private contentfulService: ContentfulService
   ) { }
 
   ngOnInit() {
+    this.contentfulService.getContactImage()
+      .then((asset) => {
+        this.contactImageUrl = asset.file.url;
+        this.contactImageAlt = asset.description;
+      });
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

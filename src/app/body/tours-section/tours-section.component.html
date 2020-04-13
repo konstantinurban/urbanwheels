@@ -1,6 +1,10 @@
 <section class="tours-section">
   <div class="tours-image page-title">
     <p>{{pageTitle}}</p>
+    <picture>
+      <source srcset="{{ toursImageUrl }}?fm=webp">
+      <img src="{{ toursImageUrl }}?fm=jpg" alt="{{ toursImageAlt }}">
+    </picture>
   </div>
   <div class="tours-left">
     <div class="tours-text main-text">

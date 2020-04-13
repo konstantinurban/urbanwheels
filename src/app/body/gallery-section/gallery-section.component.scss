@@ -44,6 +44,7 @@
 
   .gallery-right {
     order: 1;
+    background-color: #3D3D3D;
   }
 
   .swiper-button-mobile,
@@ -72,7 +73,7 @@
   img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .image-controls,

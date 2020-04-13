@@ -3,10 +3,18 @@
 
 .contact-section {
   .contact-left {
-    background-image: url("../../../assets/images/rajasthan.jpg");
-    background-size: cover;
     position: relative;
     height: 40vh;
+  }
+
+  picture {
+
+    img,
+    source {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   input,
@@ -92,7 +100,7 @@
 
     img {
       width: auto;
-      height: 0px;
+      height: 0;
       max-width: 100%;
       display: block;
       margin: auto;
@@ -112,13 +120,13 @@
   }
 
   form.form-close {
-    height: 0px !important;
+    height: 0 !important;
     opacity: 0;
-    transition: opacity .5s , height .3s;
+    transition: opacity 0.5s , height 0.3s;
   }
 
-  form.hidden,
-  .contact__form--submitted.hidden {
+  .contact__form--submitted.hidden,
+  form.hidden {
     display: none;
   }
 
@@ -139,7 +147,6 @@
     background-image: url("../../../assets/icons/send_form-black.svg");
     background-color: #fff;
   }
-
   @include breakpoint(800px) {
     display: flex;
     margin-top: unset;

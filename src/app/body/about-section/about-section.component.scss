@@ -2,16 +2,23 @@
 
 .about-section {
   .about-right {
-    background-image: url("../../../assets/images/hills.jpg");
-    background-size: cover;
     position: relative;
     height: 40vh;
   }
 
+  picture {
+    img,
+    source {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  
   @include breakpoint(800px) {
     display: flex;
 
-    .about-right{
+    .about-right {
       order: 1;
       height: 100%;
       width: 50%;

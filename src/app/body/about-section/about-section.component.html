@@ -1,6 +1,10 @@
 <section class="about-section">
   <div class="about-right page-title">
     <p>{{pageTitle}}</p>
+    <picture>
+      <source srcset="{{ aboutImageUrl }}?fm=webp">
+      <img src="{{ aboutImageUrl }}?fm=jpg" alt="{{ aboutImageAlt }}">
+    </picture>
   </div>
   <div class="about-left">
     <div class="about-text main-text">

@@ -7,9 +7,9 @@ To use the Contentful API you need to define the id and access
 token of the space you want to fetch data from. */
 
 const CONFIG = {
-  space: 'evr1lcaqkw3d',
+  space: 'bdt0tjkmo3m1',
   // Below: Content Preview API Access Token -> can get published and draft
-  accessToken: 'k56jWElnvZq_9jyHRdP0xg6X0r0WbTT2Z-N-np51GSg',
+  accessToken: '7p3DHxaf4P25c-B8X_ENiKK0NK2REserffW2e8oCoRg',
 
   contentTypeIds: {
     /*
@@ -21,7 +21,14 @@ const CONFIG = {
     5. Find the top-level "sys" block in the JSON, this includes the Meta-Data of your Content Type
     6. The "id" key inside the "sys" block will contain your Content Type ID
     */
-    exhibit: 'exhibit'
+    gallery: 'gallery'
+
+  },
+
+  assetIds: {
+    contact: '6o9uhnjboNsXHjb7cQRVAN',
+    tours : 'foCZZC8M5UNUDPYZZG8fU',
+    about : '7wRLEZPSiWweKfhNnkzFqV'
   }
 }
 
@@ -36,4 +43,28 @@ export class ContentfulService {
 
   constructor() { }
 
+  //get Page Image
+  getContactImage() {
+    return this.cdaClient.getAsset(CONFIG.assetIds.contact)
+      .then((asset) => asset.fields);
+  }
+
+  getAboutImage() {
+    return this.cdaClient.getAsset(CONFIG.assetIds.about)
+      .then((asset) => asset.fields);
+  }
+
+  getToursImage() {
+    return this.cdaClient.getAsset(CONFIG.assetIds.tours)
+      .then((asset) => asset.fields);
+  }
+
+  //get Gallery Images
+  getGalleryImages(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      // include : 2,
+      content_type: CONFIG.contentTypeIds.gallery
+    }, query))
+      .then(res => res.items);
+  }
 }

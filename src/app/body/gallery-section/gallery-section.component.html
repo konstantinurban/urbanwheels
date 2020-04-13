@@ -2,24 +2,24 @@
   <div class="gallery-left">
     <div class="swiper-container gallery-text">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let image of imageArray; let i = index">
+        <div class="swiper-slide" *ngFor="let image of galleryImages; let i = index">
           <div class="image-controls">
             <div class="swiper-button-prev swiper-button-mobile"></div>
             <div class="swiper-pagination swiper-pagination-mobile"></div>
             <div class="swiper-button-next swiper-button-mobile"></div>
           </div>
           <div class="image-info">
-            <div class="image-description">{{ image.description }}</div>
-            <div class="image-date">{{ image.date }}</div>
+            <div class="image-description">{{ image.fields.description }}</div>
+            <div class="image-date">{{ image.fields.date }}</div>
           </div>
         </div>
       </div>
     </div>
     <div class="swiper-container gallery-thumbs">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let image of imageArray; let i = index">
+        <div class="swiper-slide" *ngFor="let image of galleryImages; let i = index">
           <figure>
-            <img src="{{ image.img }}" alt="">
+            <img src="{{ image.fields.image.fields.file.url }}?w=150&h=150&fm=jpg&fit=fill" alt="">
           </figure>
         </div>
       </div>
@@ -31,9 +31,9 @@
   <div class="gallery-right">
     <div class="swiper-container gallery-main">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let image of imageArray">
+        <div class="swiper-slide" *ngFor="let image of galleryImages">
           <figure>
-            <img src="{{ image.img }}" alt="">
+            <img src="{{ image.fields.image.fields.file.url }}" alt="">
           </figure>
         </div>
       </div>
