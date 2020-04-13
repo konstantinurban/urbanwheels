@@ -27,8 +27,8 @@ const CONFIG = {
 
   assetIds: {
     contact: '6o9uhnjboNsXHjb7cQRVAN',
-    tours : 'foCZZC8M5UNUDPYZZG8fU',
-    about : '7wRLEZPSiWweKfhNnkzFqV'
+    tours: 'foCZZC8M5UNUDPYZZG8fU',
+    about: '7wRLEZPSiWweKfhNnkzFqV'
   }
 }
 
@@ -44,19 +44,19 @@ export class ContentfulService {
   constructor() { }
 
   //get Page Image
-  getContactImage() {
-    return this.cdaClient.getAsset(CONFIG.assetIds.contact)
-      .then((asset) => asset.fields);
-  }
-
-  getAboutImage() {
-    return this.cdaClient.getAsset(CONFIG.assetIds.about)
-      .then((asset) => asset.fields);
-  }
-
-  getToursImage() {
-    return this.cdaClient.getAsset(CONFIG.assetIds.tours)
-      .then((asset) => asset.fields);
+  getPageImage(page: string) {
+    switch (page) {
+      case 'contact':
+        return this.cdaClient.getAsset(CONFIG.assetIds.contact)
+          .then((asset) => asset.fields);
+        break;
+      case 'about':
+        return this.cdaClient.getAsset(CONFIG.assetIds.about)
+          .then((asset) => asset.fields);
+      case 'tours':
+        return this.cdaClient.getAsset(CONFIG.assetIds.tours)
+          .then((asset) => asset.fields);
+    }
   }
 
   //get Gallery Images

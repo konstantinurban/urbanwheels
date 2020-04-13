@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PageTitleService } from '../../_services/page-title.service';
-import { ContentfulService } from '../../_services/contentful.service';
+import { ActivatedRoute } from '@angular/router';
 declare let Swiper: any;
 import { imgArray } from './tours-data.json';
 declare let imagesLoaded: any;
@@ -18,18 +18,15 @@ export class ToursSectionComponent implements OnInit {
 
   constructor(
     public page: PageTitleService,
-    private contentfulService: ContentfulService
+    private activatedRoute: ActivatedRoute
   ) {
     this.pdfCovers = imgArray;
   }
 
   ngOnInit() {
-    this.contentfulService.getToursImage()
-      .then((asset) => {
-        this.toursImageUrl = asset.file.url;
-        this.toursImageAlt = asset.description;
-      });
     this.pageTitle = this.page.getPageTitle;
+    this.toursImageAlt = this.activatedRoute.snapshot.data.pageImage.description;
+    this.toursImageUrl = this.activatedRoute.snapshot.data.pageImage.file.url;
     imagesLoaded(document.querySelector('.tours-section'), function(instance) {
       var swiper = new Swiper('.swiper-container', {
         loop: true,

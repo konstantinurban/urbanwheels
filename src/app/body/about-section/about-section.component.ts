@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, HostBinding } from '@angular/core';
 import { PageTitleService } from '../../_services/page-title.service';
 import { ContentfulService } from '../../_services/contentful.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-about-section',
@@ -15,15 +16,12 @@ export class AboutSectionComponent implements OnInit {
 
   constructor(
     public page: PageTitleService,
-    private contentfulService: ContentfulService
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.pageTitle = this.page.getPageTitle;
-    this.contentfulService.getAboutImage()
-      .then((asset) => {
-        this.aboutImageUrl = asset.file.url;
-        this.aboutImageAlt = asset.description;
-      });
+    this.aboutImageAlt = this.activatedRoute.snapshot.data.pageImage.description;
+    this.aboutImageUrl = this.activatedRoute.snapshot.data.pageImage.file.url;
   }
 }

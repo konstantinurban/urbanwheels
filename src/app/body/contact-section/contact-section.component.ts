@@ -3,6 +3,7 @@ import { PageTitleService } from '../../_services/page-title.service';
 import { FormsubmitService } from '../../_services/formsubmit.service';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ContentfulService } from '../../_services/contentful.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-section',
@@ -24,15 +25,13 @@ export class ContactSectionComponent implements OnInit {
     public page: PageTitleService,
     private formBuilder: FormBuilder,
     private formSubmit: FormsubmitService,
-    private contentfulService: ContentfulService
+    private contentfulService: ContentfulService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.contentfulService.getContactImage()
-      .then((asset) => {
-        this.contactImageUrl = asset.file.url;
-        this.contactImageAlt = asset.description;
-      });
+    this.contactImageAlt = this.activatedRoute.snapshot.data.pageImage.description;
+    this.contactImageUrl = this.activatedRoute.snapshot.data.pageImage.file.url;
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
