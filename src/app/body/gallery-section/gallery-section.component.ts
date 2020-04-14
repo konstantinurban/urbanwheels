@@ -15,15 +15,12 @@ declare let imagesLoaded: any;
 })
 export class GallerySectionComponent implements OnInit {
   @HostBinding('class') class = 'app-gallery-section';
-  imageArray: any[] = [];
   galleryImages: Entry<any>[] = [];
 
   constructor(
     private contentfulService: ContentfulService,
     private activatedRoute: ActivatedRoute
-  ) {
-    this.imageArray = imgArray;
-  }
+  ) {}
 
   ngOnInit() {
     this.galleryImages = this.activatedRoute.snapshot.data.galleryImages;

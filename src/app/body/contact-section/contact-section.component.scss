@@ -7,8 +7,16 @@
     height: 40vh;
   }
 
-  picture {
+  .contact-text {
+    overflow: scroll;
+  }
 
+  .contact-text::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
+  picture {
     img,
     source {
       object-fit: cover;
