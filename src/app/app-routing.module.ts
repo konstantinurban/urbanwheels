@@ -6,6 +6,8 @@ import { GallerySectionComponent } from './body/gallery-section/gallery-section.
 import { ContactSectionComponent } from './body/contact-section/contact-section.component';
 import { IndexSectionComponent } from './body/index-section/index-section.component';
 import { PageImageResolverService } from './_services/page-image-resolver.service';
+import { GalleryImagesResolverService } from './_services/gallery-images-resolver.service';
+
 
 export const routes: Routes = [
   { path: '', component: IndexSectionComponent },
@@ -21,7 +23,12 @@ export const routes: Routes = [
     data: { state: 'tours' },
     resolve: { pageImage: PageImageResolverService }
   },
-  { path: 'gallery', component: GallerySectionComponent, data: { state: 'gallery' } },
+  {
+    path: 'gallery',
+    component: GallerySectionComponent,
+    data: { state: 'gallery' },
+    resolve : { galleryImages : GalleryImagesResolverService }
+  },
   {
     path: 'contact',
     component: ContactSectionComponent,
@@ -35,7 +42,8 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [
-    PageImageResolverService
+    PageImageResolverService,
+    GalleryImagesResolverService
   ]
 })
 export class AppRoutingModule { }

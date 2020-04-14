@@ -5,13 +5,13 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class PageImageResolverService implements Resolve<any> {
+export class GalleryImagesResolverService implements Resolve<any> {
   
   constructor(
     private contentfulService: ContentfulService
   ) { }
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.contentfulService.getPageImage(route.data['state']);
+    return this.contentfulService.getGalleryImages();
   }
 }

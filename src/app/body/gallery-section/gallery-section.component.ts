@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewEncapsulation, HostBinding } from
 import { Router } from '@angular/router';
 import { imgArray } from './gallery-data.json';
 import { ContentfulService } from '../../_services/contentful.service';
+import { ActivatedRoute } from '@angular/router';
 import { Entry } from 'contentful';
 declare let Swiper: any;
 declare let imagesLoaded: any;
@@ -17,49 +18,47 @@ export class GallerySectionComponent implements OnInit {
   imageArray: any[] = [];
   galleryImages: Entry<any>[] = [];
 
-
   constructor(
-    private contentfulService: ContentfulService
+    private contentfulService: ContentfulService,
+    private activatedRoute: ActivatedRoute
   ) {
     this.imageArray = imgArray;
   }
 
   ngOnInit() {
-    this.contentfulService.getGalleryImages()
-      .then(images => this.galleryImages = images)
-      .then(images => console.log(this.galleryImages));
-    imagesLoaded(document.querySelector('.gallery-section'), function(instance) {
-      console.log('Images loaded > swiper start');
-      var galleryThumbs = new Swiper('.gallery-thumbs', {
-        spaceBetween: 5,
-        slidesPerView: 3,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-      });
-      var galleryText = new Swiper('.gallery-text', {
-        slidesPerView: 1,
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }
-      });
-      var galleryMain = new Swiper('.gallery-main', {
-        spaceBetween: 5,
-        slidesPerView: 1,
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'fraction'
-        },
-        thumbs: {
-          swiper: galleryThumbs
-        }
-      });
-      galleryText.controller.control = galleryMain;
-      galleryMain.controller.control = galleryText;
+    this.galleryImages = this.activatedRoute.snapshot.data.galleryImages;
+  }
+
+  ngAfterViewInit() {
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 5,
+      slidesPerView: 3,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
     });
+    var galleryText = new Swiper('.gallery-text', {
+      slidesPerView: 1,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+    var galleryMain = new Swiper('.gallery-main', {
+      spaceBetween: 5,
+      slidesPerView: 1,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction'
+      },
+      thumbs: {
+        swiper: galleryThumbs
+      }
+    });
+    galleryText.controller.control = galleryMain;
+    galleryMain.controller.control = galleryText;
   }
 }
