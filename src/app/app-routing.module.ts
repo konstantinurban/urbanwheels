@@ -8,7 +8,6 @@ import { IndexSectionComponent } from './body/index-section/index-section.compon
 import { PageImageResolverService } from './_services/page-image-resolver.service';
 import { GalleryImagesResolverService } from './_services/gallery-images-resolver.service';
 
-
 export const routes: Routes = [
   { path: '', component: IndexSectionComponent },
   {
