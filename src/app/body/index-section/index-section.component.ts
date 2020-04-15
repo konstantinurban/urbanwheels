@@ -1,6 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { trigger, state, animate, style, group, query, transition } from '@angular/animations';
 import Vimeo from '@vimeo/player';
+declare let WOW: any;
 
 @Component({
   selector: 'app-index-section',
@@ -24,7 +25,9 @@ export class IndexSectionComponent implements OnInit {
   innerWidth: any;
   isMobile = false;
 
-  constructor() { }
+  constructor() {
+    new WOW().init();
+  }
 
   ngOnInit() {
     this.innerWidth = window.innerWidth;
