@@ -55,7 +55,8 @@ export class ContentfulService {
           .then((asset) => asset.fields);
       case 'tours':
         return this.cdaClient.getAsset(CONFIG.assetIds.tours)
-          .then((asset) => asset.fields);
+          .then((asset) => asset.fields)
+          .catch(console.error);
     }
   }
 

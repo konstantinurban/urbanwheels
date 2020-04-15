@@ -1,8 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation, HostBinding } from '@angular/core';
-import { Router } from '@angular/router';
-import { imgArray } from './gallery-data.json';
 import { ContentfulService } from '../../_services/contentful.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Entry } from 'contentful';
 declare let Swiper: any;
 declare let imagesLoaded: any;
