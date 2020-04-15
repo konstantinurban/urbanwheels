@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { MenuService } from '../_services/menu.service';
+declare let WOW: any;
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,9 @@ export class HeaderComponent implements OnInit {
   constructor(
     public menu: MenuService,
     public router: Router
-  ) { }
+  ) {
+    new WOW().init();
+  }
 
   ngOnInit() {
     this.router.events.subscribe(e => {
