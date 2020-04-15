@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { Router, RouterModule, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { MenuService } from '../_services/menu.service';
 
@@ -11,11 +11,24 @@ import { MenuService } from '../_services/menu.service';
 export class HeaderComponent implements OnInit {
   public innerWidth: any;
   pageTitle: string;
+  isIndex: boolean;
+
   constructor(
     public menu: MenuService,
-  ) {}
+    public router: Router
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        if (e.url == '/') {
+          this.isIndex = true;
+        } else {
+          this.isIndex = false;
+        }
+      }
+    });
+  }
 
   closeMenu() {
     this.innerWidth = window.innerWidth;

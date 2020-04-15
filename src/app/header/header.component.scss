@@ -65,6 +65,10 @@ header {
     }
     @include breakpoint(800px) {
       width: 50%;
+
+      .header-right.logo-index {
+        display: none;
+      }
     }
     @include breakpoint(1000px) {
       background: #fff;

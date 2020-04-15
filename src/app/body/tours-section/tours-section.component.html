@@ -1,5 +1,5 @@
 <section class="tours-section">
-  <div class="tours-image page-title">
+  <div class="tours-right page-title">
     <p>{{pageTitle}}</p>
     <picture>
       <source srcset="{{ toursImageUrl }}?fm=webp">
@@ -23,15 +23,4 @@
       </p>
     </div>
   </div>
-  <div class="tours-right swiper-container">
-      <div class="swiper-wrapper">
-        <div *ngFor="let image of pdfCovers; let i = index;" class="swiper-slide">
-          <a href="{{image.link}}" target="_blank" class="tour-link">
-            <img src="{{image.img}}" alt="{{image.description}}">
-          </a>
-        </div>
-    </div>
-    <div class="swiper-button-prev"></div>
-  </div>
-  <div class="swiper-pagination">Lallala</div>
 </section>

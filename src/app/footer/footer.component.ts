@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MenuService } from '../_services/menu.service';
 import { PageTitleService } from '../_services/page-title.service';
-import { Router, RouterModule, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -30,13 +30,5 @@ export class FooterComponent implements OnInit {
         }
       }
     });
-    // console.log(this.router.url);
-    // console.log(this.page.getPageTitle);
-    // if (this.pageTitle = 'gallery') {
-    //   console.log(this.pageTitle);
-    //   this.isGallery = true;
-    // } else {
-    //   this.isGallery = false;
-    // }
   }
 }
