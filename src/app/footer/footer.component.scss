@@ -12,7 +12,7 @@ footer {
   bottom: 0;
   z-index: 100;
   transition: background-color;
-  transition-delay: .1s;
+  transition-delay: 0.1s;
 
   &.nav--open {
     background-color: transparent;
@@ -30,8 +30,13 @@ footer {
     color: #000;
     text-decoration: none;
   }
-
   @include breakpoint(800px) {
     width: 50%;
+    transition: width 0.5s;
   }
+}
+
+footer.footer-wide {
+  width: 100%;
+  background-color: transparent;
 }

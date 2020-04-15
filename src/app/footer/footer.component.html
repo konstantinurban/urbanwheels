@@ -1,4 +1,4 @@
-<footer [class.nav--open]="menu.isMenuClosed">
+<footer [class.nav--open]="menu.isMenuClosed" [ngClass]="{'footer-wide' : isGallery }">
   <a routerLink="/">
     <p><i class="far fa-copyright"></i> urbanwheels 2019</p>
   </a>

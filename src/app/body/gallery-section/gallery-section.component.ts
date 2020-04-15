@@ -16,26 +16,29 @@ declare let imagesLoaded: any;
 export class GallerySectionComponent implements OnInit {
   @HostBinding('class') class = 'app-gallery-section';
   galleryImages: Entry<any>[] = [];
+  swiperShown: boolean;
 
   constructor(
     private contentfulService: ContentfulService,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.galleryImages = this.activatedRoute.snapshot.data.galleryImages;
+    if (window.outerWidth < 800) {
+      this.swiperShown = true;
+      setTimeout(() => {
+        this.swiperShown = false;
+      }, 2000);
+    }
   }
 
   ngAfterViewInit() {
-    var galleryThumbs = new Swiper('.gallery-thumbs', {
-      spaceBetween: 5,
-      slidesPerView: 3,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-    });
     var galleryText = new Swiper('.gallery-text', {
       slidesPerView: 1,
       effect: 'fade',
+      autoHeight: true,
+      loop: true,
       fadeEffect: {
         crossFade: true
       },
@@ -45,14 +48,19 @@ export class GallerySectionComponent implements OnInit {
       }
     });
     var galleryMain = new Swiper('.gallery-main', {
-      spaceBetween: 5,
+      spaceBetween: 0,
       slidesPerView: 1,
+      loop: true,
+      autoHeight: true,
+      breakpoints: {
+        // when window width is => 799
+        799: {
+          autoHeight: false
+        }
+      },
       pagination: {
         el: '.swiper-pagination',
         type: 'fraction'
-      },
-      thumbs: {
-        swiper: galleryThumbs
       }
     });
     galleryText.controller.control = galleryMain;
