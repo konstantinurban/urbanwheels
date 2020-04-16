@@ -2,8 +2,9 @@
   <div class="tours-right page-title">
     <p>{{pageTitle}}</p>
     <picture>
-      <source srcset="{{ toursImageUrl }}?fm=webp">
-      <img src="{{ toursImageUrl }}?fm=jpg" alt="{{ toursImageAlt }}">
+      <source srcset="{{ toursImageUrl }}?fm=webp" type="image/webp">
+      <source srcset="{{ toursImageUrl }}?fm=png" type="image/png">
+      <img src="{{ toursImageUrl }}?fm=png" alt="{{ toursImageAlt }}">
     </picture>
   </div>
   <div class="tours-left">

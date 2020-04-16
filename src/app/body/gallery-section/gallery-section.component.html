@@ -1,10 +1,13 @@
-<section class="gallery-section" [ngClass]="{ 'loading' : done, 'loading-done' : !done }">
+<p class="pre-gallery" [ngClass]="{ 'gallery-loaded' : galleryLoaded }">Just a moment, the gallery is loading! ;)</p>
+<section class="gallery-section">
   <div class="swiper-container gallery-main" [ngClass]="{ 'swiper-icon' : swiperShown }">
     <div class="swiper-wrapper">
       <div class="swiper-slide" *ngFor="let image of galleryImages">
-        <figure>
-          <img src="{{ image.fields.image.fields.file.url }}" alt="">
-        </figure>
+        <picture>
+          <source srcset="{{ image.fields.image.fields.file.url }}?fm=webp" type="image/webp">
+          <source srcset="{{ image.fields.image.fields.file.url }}?fm=png" type="image/png">
+          <img src="{{ image.fields.image.fields.file.url }}?fm=png" alt="{{ contactImageAlt }}">
+        </picture>
       </div>
     </div>
   </div>

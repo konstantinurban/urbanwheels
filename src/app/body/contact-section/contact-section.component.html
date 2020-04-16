@@ -2,8 +2,9 @@
   <div class="contact-left page-title">
     <p>{{pageTitle}}</p>
     <picture>
-      <source srcset="{{ contactImageUrl }}?fm=webp">
-      <img src="{{ contactImageUrl }}?fm=jpg" alt="{{ contactImageAlt }}">
+      <source srcset="{{ contactImageUrl }}?fm=webp" type="image/webp">
+      <source srcset="{{ contactImageUrl }}?fm=png" type="image/png">
+      <img src="{{ contactImageUrl }}?fm=png" alt="{{ contactImageAlt }}">
     </picture>
   </div>
   <div class="contact-right">

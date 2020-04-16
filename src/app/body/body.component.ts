@@ -16,6 +16,7 @@ export class BodyComponent {
 
   ngOnInit() {
   }
+
   getState(outlet) {
     return outlet.activatedRouteData.state;
   }

@@ -2,8 +2,9 @@
   <div class="about-right page-title">
     <p>{{pageTitle}}</p>
     <picture>
-      <!-- <source srcset="{{ aboutImageUrl }}?fm=webp"> -->
-      <img src="{{ aboutImageUrl }}?fm=jpg" alt="{{ aboutImageAlt }}">
+      <source srcset="{{ aboutImageUrl }}?fm=webp" type="image/webp">
+      <source srcset="{{ aboutImageUrl }}?fm=png" type="image/png">
+      <img src="{{ aboutImageUrl }}?fm=png" alt="{{ aboutImageAlt }}">
     </picture>
   </div>
   <div class="about-left">
