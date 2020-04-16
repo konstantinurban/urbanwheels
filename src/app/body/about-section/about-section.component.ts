@@ -17,7 +17,8 @@ export class AboutSectionComponent implements OnInit {
   constructor(
     public page: PageTitleService,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.pageTitle = this.page.getPageTitle;

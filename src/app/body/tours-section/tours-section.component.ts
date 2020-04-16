@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ToursSectionComponent implements OnInit {
   pageTitle: string;
-  pdfCovers: any[] = [];
   toursImageUrl: any;
   toursImageAlt: any;
 

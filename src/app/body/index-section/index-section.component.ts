@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, AfterViewInit } from '@angular/core';
 import { trigger, state, animate, style, group, query, transition } from '@angular/animations';
 import Vimeo from '@vimeo/player';
 declare let WOW: any;
@@ -39,20 +39,14 @@ export class IndexSectionComponent implements OnInit {
         this.hideLogo = true;
       }
     }, 3000);
+  }
 
+  ngAfterViewInit() {
     var iframe = document.querySelector('iframe');
     var player = new Vimeo(iframe);
-    //
-    // player.on('play', () => {
-    //   console.log(this.isMobile);
-    //   if (this.isMobile) {
-    //     this.hideLogo = true;
-    //   }
-    //   console.log('played');
-    // });
-    //
-    player.on('ended', () => {
+    player.on('finished', () => {
       if (this.isMobile) {
+        alert("vid endd");
         this.hideLogo = false;
       }
     });

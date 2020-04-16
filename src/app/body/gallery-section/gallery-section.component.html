@@ -1,4 +1,4 @@
-<section class="gallery-section">
+<section class="gallery-section" [ngClass]="{ 'loading' : done, 'loading-done' : !done }">
   <div class="swiper-container gallery-main" [ngClass]="{ 'swiper-icon' : swiperShown }">
     <div class="swiper-wrapper">
       <div class="swiper-slide" *ngFor="let image of galleryImages">
