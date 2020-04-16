@@ -1,33 +1,39 @@
-<p class="pre-gallery" [ngClass]="{ 'gallery-loaded' : galleryLoaded }">Just a moment, the gallery is loading! ;)</p>
-<section class="gallery-section">
-  <div class="swiper-container gallery-main" [ngClass]="{ 'swiper-icon' : swiperShown }">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" *ngFor="let image of galleryImages">
-        <picture>
-          <source srcset="{{ image.fields.image.fields.file.url }}?fm=webp" type="image/webp">
-          <source srcset="{{ image.fields.image.fields.file.url }}?fm=png" type="image/png">
-          <img src="{{ image.fields.image.fields.file.url }}?fm=png" alt="{{ contactImageAlt }}">
-        </picture>
-      </div>
-    </div>
-  </div>
-  <div class="swiper-button-next swiper-button-desktop"></div>
-  <!-- <div class="swiper-pagination swiper-pagination-desktop"></div> -->
-  <div class="swiper-container gallery-text">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" *ngFor="let image of galleryImages; let i = index">
-        <div class="image-controls">
-          <div class="swiper-button-prev swiper-button-mobile"></div>
-          <div class="swiper-pagination swiper-pagination-mobile"></div>
-          <div class="swiper-button-next swiper-button-mobile"></div>
-        </div>
-        <div class="image-info">
-          <div class="image-description"><p>{{ image.fields.description }}</p></div>
-          <div class="image-date"><p>{{ image.fields.date }}</p></div>
+<section class="gallery-section" [ngClass]="{ 'load-complete' : viewPage }">
+  <img class="component-loader" src="/assets/icons/loading.svg" alt="">
+  <div class="gallery-wrapper">
+    <div class="swiper-container gallery-main" [ngClass]="{ 'swiper-icon' : swiperShown }" >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let image of galleryImages">
+          <picture>
+            <source srcset="{{ image.fields.image.fields.file.url }}?fm=webp" type="image/webp">
+            <source srcset="{{ image.fields.image.fields.file.url }}?fm=jpg" type="image/jpg">
+            <img src="{{ image.fields.image.fields.file.url }}?fm=jpg" alt="{{ contactImageAlt }}" (load)="imageLoaded()">
+          </picture>
         </div>
       </div>
     </div>
-    <a class="instagram-mobile" href="https://www.instagram.com/theurbanwheels/" target="_blank"><img src="/assets/icons/instagram.svg" alt="urbanwheels connect instagram"></a>
-    <p class="instagram-desktop">Stay up to date by following us on Instagram:<a href="https://www.instagram.com/theurbanwheels/" target="_blank">@theurbanwheels</a></p>
+    <div class="swiper-button-next swiper-button-desktop"></div>
+    <!-- <div class="swiper-pagination swiper-pagination-desktop"></div> -->
+    <div class="swiper-container gallery-text">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let image of galleryImages; let i = index">
+          <div class="image-controls">
+            <div class="swiper-button-prev swiper-button-mobile"></div>
+            <div class="swiper-pagination swiper-pagination-mobile"></div>
+            <div class="swiper-button-next swiper-button-mobile"></div>
+          </div>
+          <div class="image-info">
+            <div class="image-description">
+              <p>{{ image.fields.description }}</p>
+            </div>
+            <div class="image-date">
+              <p>{{ image.fields.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="instagram-mobile" href="https://www.instagram.com/theurbanwheels/" target="_blank"><img src="/assets/icons/instagram.svg" alt="urbanwheels connect instagram"></a>
+      <p class="instagram-desktop">Stay up to date by following us on Instagram:<a href="https://www.instagram.com/theurbanwheels/" target="_blank">@theurbanwheels</a></p>
+    </div>
   </div>
 </section>

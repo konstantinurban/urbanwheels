@@ -105,3 +105,37 @@ body {
     padding: 0 30px;
   }
 }
+
+.tours-wrapper,
+.about-wrapper,
+.gallery-wrapper {
+  opacity: 0;
+  transition: opacity 0.5s;
+  height: 100vh;
+}
+
+.component-loader {
+  position: fixed;
+  top: 30%;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.5s;
+  height: 200px;
+  z-index: 100;
+}
+
+.tours-section.load-complete,
+.about-section.load-complete,
+.gallery-section.load-complete {
+
+  .tours-wrapper,
+  .about-wrapper,
+  .gallery-wrapper {
+    opacity: 1;
+  }
+
+  .component-loader {
+    opacity: 0;
+  }
+}

@@ -1,27 +1,30 @@
-<section class="tours-section">
-  <div class="tours-right page-title">
-    <p>{{pageTitle}}</p>
-    <picture>
-      <source srcset="{{ toursImageUrl }}?fm=webp" type="image/webp">
-      <source srcset="{{ toursImageUrl }}?fm=png" type="image/png">
-      <img src="{{ toursImageUrl }}?fm=png" alt="{{ toursImageAlt }}">
-    </picture>
-  </div>
-  <div class="tours-left">
-    <div class="tours-text main-text">
-      <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kielbasa chicken hamburger prosciutto brisket ham pork loin turkey biltong salami. Burgdoggen pig tail beef ribs, t-bone chicken filet mignon prosciutto rump porchetta. Chuck alcatra beef brisket
-        flank
-        beef ribs picanha rump venison filet mignon
-        tri-tip salami. Beef ribs cupim venison prosciutto short loin ham salami beef hamburger frankfurter jerky. Ground round salami shank, tail fatback short loin porchetta. Capicola flank turkey ground round. Ground round jowl kevin meatball
-        meatloaf
-        t-bone boudin.
-      </p>
-      <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chicken tail picanha ribeye cupim meatloaf. Doner flank meatball, pancetta bacon hamburger pastrami short loin kevin short ribs brisket turducken ball tip landjaeger. Strip steak bresaola chislic
-        shankle jerky. Short ribs short loin tongue ribeye
-        corned beef pork loin doner jowl capicola drumstick kevin shoulder. Pancetta jerky shoulder corned beef, bresaola pig sirloin pork chop chicken tri-tip.
-      </p>
+<section class="tours-section" [ngClass]="{ 'load-complete' : viewPage }">
+  <img class="component-loader" src="/assets/icons/loading.svg">
+  <div class="tours-wrapper">
+    <div class="tours-right page-title">
+      <p>{{pageTitle}}</p>
+      <picture>
+        <source srcset="{{ toursImageUrl }}?fm=webp" type="image/webp">
+        <source srcset="{{ toursImageUrl }}?fm=png" type="image/png">
+        <img src="{{ toursImageUrl }}?fm=png" alt="{{ toursImageAlt }}" (load)="imageLoaded()">
+      </picture>
+    </div>
+    <div class="tours-left">
+      <div class="tours-text main-text">
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kielbasa chicken hamburger prosciutto brisket ham pork loin turkey biltong salami. Burgdoggen pig tail beef ribs, t-bone chicken filet mignon prosciutto rump porchetta. Chuck alcatra beef brisket
+          flank
+          beef ribs picanha rump venison filet mignon
+          tri-tip salami. Beef ribs cupim venison prosciutto short loin ham salami beef hamburger frankfurter jerky. Ground round salami shank, tail fatback short loin porchetta. Capicola flank turkey ground round. Ground round jowl kevin meatball
+          meatloaf
+          t-bone boudin.
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chicken tail picanha ribeye cupim meatloaf. Doner flank meatball, pancetta bacon hamburger pastrami short loin kevin short ribs brisket turducken ball tip landjaeger. Strip steak bresaola chislic
+          shankle jerky. Short ribs short loin tongue ribeye
+          corned beef pork loin doner jowl capicola drumstick kevin shoulder. Pancetta jerky shoulder corned beef, bresaola pig sirloin pork chop chicken tri-tip.
+        </p>
+      </div>
     </div>
   </div>
 </section>

@@ -11,6 +11,7 @@ export class ToursSectionComponent implements OnInit {
   pageTitle: string;
   toursImageUrl: any;
   toursImageAlt: any;
+  viewPage : boolean = false;
 
   constructor(
     public page: PageTitleService,
@@ -22,5 +23,9 @@ export class ToursSectionComponent implements OnInit {
     this.pageTitle = this.page.getPageTitle;
     this.toursImageAlt = this.activatedRoute.snapshot.data.pageImage.description;
     this.toursImageUrl = this.activatedRoute.snapshot.data.pageImage.file.url;
+  }
+
+  imageLoaded() {
+    this.viewPage = true;
   }
 }

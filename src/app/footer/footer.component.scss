@@ -40,6 +40,10 @@ footer.footer-wide {
   width: 100%;
   background-color: #fff;
 
+  &.nav--open {
+    background-color: transparent;
+  }
+  
   @include breakpoint(800px) {
     background-color: transparent;
   }

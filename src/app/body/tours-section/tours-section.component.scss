@@ -1,27 +1,28 @@
 @import 'mixins';
 
 .tours-section {
-  .tours-right {
-    position: relative;
-    height: 40vh;
-  }
-
-  picture {
-    img,
-    source {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  @include breakpoint(800px) {
-    display: flex;
-
+  .tours-wrapper {
     .tours-right {
-      order: 1;
-      height: 100%;
-      width: 50%;
+      position: relative;
+      height: 40vh;
+    }
+
+    picture {
+      img,
+      source {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    @include breakpoint(800px) {
+      display: flex;
+
+      .tours-right {
+        order: 1;
+        height: 100%;
+        width: 50%;
+      }
     }
   }
 }
