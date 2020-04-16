@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewEncapsulation, HostBinding, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation, HostBinding } from '@angular/core';
 import { ContentfulService } from '../../_services/contentful.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
@@ -22,7 +22,6 @@ export class GallerySectionComponent implements OnInit {
   constructor(
     private contentfulService: ContentfulService,
     private activatedRoute: ActivatedRoute,
-    private cd : ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -30,13 +29,12 @@ export class GallerySectionComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.galleryLoaded = false;
-    console.log("before load", this.galleryLoaded);
     let section = $('.gallery-section');
+    let loader = $('.pre-gallery');
     section.hide();
+    loader.css({ 'position' : 'fixed', 'top': '50%', 'z-index' : 100});
     imagesLoaded(section, function(instance) {
-      this.galleryLoaded = true;
-      console.log("gal", this.galleryLoaded);
+      loader.hide();
       section.show();
       var galleryText = new Swiper('.gallery-text', {
         slidesPerView: 1,

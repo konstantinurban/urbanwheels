@@ -38,5 +38,9 @@ footer {
 
 footer.footer-wide {
   width: 100%;
-  background-color: transparent;
+  background-color: #fff;
+
+  @include breakpoint(800px) {
+    background-color: transparent;
+  }
 }

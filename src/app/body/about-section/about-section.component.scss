@@ -1,6 +1,17 @@
 @import 'mixins';
 
 .about-section {
+  .loader {
+    position: fixed;
+    top: 30%;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    transition: opacity 0.5s;
+    height: 200px;
+    z-index: 100;
+  }
+
   .about-right {
     position: relative;
     height: 40vh;
@@ -14,14 +25,29 @@
       width: 100%;
     }
   }
-  
-  @include breakpoint(800px) {
-    display: flex;
 
-    .about-right {
-      order: 1;
-      height: 100%;
-      width: 50%;
+  .about-wrapper {
+    opacity: 0;
+    transition: opacity 0.5s;
+    height: 100vh;
+    @include breakpoint(800px) {
+      display: flex;
+
+      .about-right {
+        order: 1;
+        height: 100%;
+        width: 50%;
+      }
     }
+  }
+}
+
+.about-section.load-complete {
+  .about-wrapper {
+    opacity: 1;
+  }
+
+  .loader {
+    opacity: 0;
   }
 }

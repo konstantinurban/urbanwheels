@@ -13,6 +13,7 @@ export class AboutSectionComponent implements OnInit {
   pageTitle: string;
   aboutImageUrl: any;
   aboutImageAlt: any;
+  viewPage : boolean = false;
 
   constructor(
     public page: PageTitleService,
@@ -24,5 +25,9 @@ export class AboutSectionComponent implements OnInit {
     this.pageTitle = this.page.getPageTitle;
     this.aboutImageAlt = this.activatedRoute.snapshot.data.pageImage.description;
     this.aboutImageUrl = this.activatedRoute.snapshot.data.pageImage.file.url;
+  }
+
+  imageLoaded() {
+    this.viewPage = true;
   }
 }
