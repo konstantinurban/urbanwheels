@@ -49,7 +49,6 @@ export class GallerySectionComponent implements OnInit {
       }
     });
     var galleryMain = new Swiper('.gallery-main', {
-      speed: 10000,
       direction: 'horizontal',
       spaceBetween: 0,
       loop: true,
