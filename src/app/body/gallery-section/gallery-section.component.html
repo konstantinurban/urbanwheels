@@ -1,5 +1,5 @@
 <section class="gallery-section" [ngClass]="{ 'load-complete' : viewPage }">
-  <img class="component-loader" src="/assets/icons/loading.svg" alt="">
+  <img class="component-loader" src="../../../assets/icons/loading.svg" alt="">
   <div class="gallery-wrapper">
     <div class="swiper-container gallery-main" [ngClass]="{ 'swiper-icon' : swiperShown }" >
       <div class="swiper-wrapper">
@@ -7,7 +7,7 @@
           <picture>
             <source srcset="{{ image.fields.image.fields.file.url }}?fm=webp" type="image/webp">
             <source srcset="{{ image.fields.image.fields.file.url }}?fm=jpg" type="image/jpg">
-            <img src="{{ image.fields.image.fields.file.url }}?fm=jpg" alt="{{ contactImageAlt }}" (load)="imageLoaded()">
+            <img src="{{ image.fields.image.fields.file.url }}?fm=jpg" (load)="imageLoaded()">
           </picture>
         </div>
       </div>
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <a class="instagram-mobile" href="https://www.instagram.com/theurbanwheels/" target="_blank"><img src="/assets/icons/instagram.svg" alt="urbanwheels connect instagram"></a>
+      <a class="instagram-mobile" href="https://www.instagram.com/theurbanwheels/" target="_blank"><img src="../../../assets/icons/instagram.svg" alt="urbanwheels connect instagram"></a>
       <p class="instagram-desktop">Stay up to date by following us on Instagram:<a href="https://www.instagram.com/theurbanwheels/" target="_blank">@theurbanwheels</a></p>
     </div>
   </div>

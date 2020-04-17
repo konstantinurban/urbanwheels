@@ -11,7 +11,7 @@ import { routerTransition } from '../_animations/route-animation';
 export class BodyComponent {
 
   constructor(
-    private menu: MenuService
+    public menu: MenuService
   ) { }
 
   ngOnInit() {

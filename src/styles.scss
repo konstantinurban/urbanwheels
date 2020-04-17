@@ -106,6 +106,7 @@ body {
   }
 }
 
+.contact-wrapper,
 .tours-wrapper,
 .about-wrapper,
 .gallery-wrapper {
@@ -125,10 +126,12 @@ body {
   z-index: 100;
 }
 
+.contact-section.load-complete,
 .tours-section.load-complete,
 .about-section.load-complete,
 .gallery-section.load-complete {
 
+  .contact-wrapper,
   .tours-wrapper,
   .about-wrapper,
   .gallery-wrapper {

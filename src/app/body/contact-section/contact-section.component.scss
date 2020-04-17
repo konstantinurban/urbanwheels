@@ -2,167 +2,169 @@
 @import 'variables';
 
 .contact-section {
-  .contact-left {
-    position: relative;
-    height: 40vh;
-  }
-
-  .contact-text {
-    overflow: scroll;
-  }
-
-  .contact-text::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
-  }
-
-  picture {
-    img,
-    source {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  input,
-  label,
-  textarea {
-    display: block;
-    font-size: 13px;
-    font-family: $font-mont;
-  }
-
-  input,
-  textarea {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  input {
-    height: 30px;
-    padding-left: 10px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #000;
-  }
-
-  input,
-  textarea {
-    background-image: linear-gradient(to top, #F8F8F8 50%, transparent 50%);
-    background-size: 100% 200%;
-    background-position: top;
-    transition: background-position 0.2s ease-in-out;
-  }
-
-  input.ng-valid,
-  input:focus,
-  textarea.ng-valid,
-  textarea:focus {
-    background-position: bottom;
-    outline: none;
-  }
-
-  textarea {
-    height: 150px;
-    padding: 5px;
-    border: solid 1px;
-  }
-
-  input.is-invalid,
-  textarea.is-invalid {
-    border-color: maroon;
-  }
-
-  .contact__form--group {
-    margin-bottom: 20px;
-    margin-top: 5px;
-  }
-
-  .contact__form--error {
-    font-size: 10px;
-    color: maroon;
-    margin-top: 5px;
-    margin-left: 1.5%;
-  }
-
-  .contact__form--submitted {
-    opacity: 0;
-    text-align: center;
-    font-family: $font-mont;
-    font-size: 21px;
-
-    span {
-      font-weight: 600;
-      display: block;
-    }
-
-    figure {
-      max-width: 100%;
-      margin: 0;
-      box-sizing: border-box;
-      display: block;
-    }
-
-    img {
-      width: auto;
-      height: 0;
-      max-width: 100%;
-      display: block;
-      margin: auto;
-    }
-  }
-
-  .contact__form--submitted.submitted-open {
-    opacity: 1;
-
-    img {
-      height: 190px;
-    }
-  }
-
-  form {
-    opacity: 1;
-  }
-
-  form.form-close {
-    height: 0 !important;
-    opacity: 0;
-    transition: opacity 0.5s , height 0.3s;
-  }
-
-  .contact__form--submitted.hidden,
-  form.hidden {
-    display: none;
-  }
-
-  .contact__submit--button {
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border: none;
-    position: relative;
-    height: 60px;
-    width: 60px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-size: 35px 35px;
-    background-repeat: no-repeat;
-    background-position: 10px;
-    background-image: url("../../../assets/icons/send_form-black.svg");
-    background-color: #fff;
-  }
-  @include breakpoint(800px) {
-    display: flex;
-    margin-top: unset;
-
+  .contact-wrapper {
     .contact-left {
-      order: 1;
-      height: 100%;
-      width: 50%;
+      position: relative;
+      height: 40vh;
+    }
+
+    .contact-text {
+      overflow: scroll;
+    }
+
+    .contact-text::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
+    }
+
+    picture {
+      img,
+      source {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    input,
+    label,
+    textarea {
+      display: block;
+      font-size: 13px;
+      font-family: $font-mont;
+    }
+
+    input,
+    textarea {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    input {
+      height: 30px;
+      padding-left: 10px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid #000;
+    }
+
+    input,
+    textarea {
+      background-image: linear-gradient(to top, #F8F8F8 50%, transparent 50%);
+      background-size: 100% 200%;
+      background-position: top;
+      transition: background-position 0.2s ease-in-out;
+    }
+
+    input.ng-valid,
+    input:focus,
+    textarea.ng-valid,
+    textarea:focus {
+      background-position: bottom;
+      outline: none;
+    }
+
+    textarea {
+      height: 150px;
+      padding: 5px;
+      border: solid 1px;
+    }
+
+    input.is-invalid,
+    textarea.is-invalid {
+      border-color: maroon;
+    }
+
+    .contact__form--group {
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+
+    .contact__form--error {
+      font-size: 10px;
+      color: maroon;
+      margin-top: 5px;
+      margin-left: 1.5%;
+    }
+
+    .contact__form--submitted {
+      opacity: 0;
+      text-align: center;
+      font-family: $font-mont;
+      font-size: 21px;
+
+      span {
+        font-weight: 600;
+        display: block;
+      }
+
+      figure {
+        max-width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        display: block;
+      }
+
+      img {
+        width: auto;
+        height: 0;
+        max-width: 100%;
+        display: block;
+        margin: auto;
+      }
+    }
+
+    .contact__form--submitted.submitted-open {
+      opacity: 1;
+
+      img {
+        height: 190px;
+      }
+    }
+
+    form {
+      opacity: 1;
+    }
+
+    form.form-close {
+      height: 0 !important;
+      opacity: 0;
+      transition: opacity 0.5s , height 0.3s;
+    }
+
+    .contact__form--submitted.hidden,
+    form.hidden {
+      display: none;
+    }
+
+    .contact__submit--button {
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border: none;
+      position: relative;
+      height: 60px;
+      width: 60px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background-size: 35px 35px;
+      background-repeat: no-repeat;
+      background-position: 10px;
+      background-image: url("../../../assets/icons/send_form-black.svg");
+      background-color: #fff;
+    }
+    @include breakpoint(800px) {
+      display: flex;
+      margin-top: unset;
+
+      .contact-left {
+        order: 1;
+        height: 100%;
+        width: 50%;
+      }
     }
   }
 }

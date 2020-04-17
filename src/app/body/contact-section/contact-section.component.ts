@@ -20,6 +20,7 @@ export class ContactSectionComponent implements OnInit {
   submitted = false;
   contactImageUrl: any;
   contactImageAlt: any;
+  viewPage: boolean = false;
 
   constructor(
     public page: PageTitleService,
@@ -63,5 +64,9 @@ export class ContactSectionComponent implements OnInit {
       this.formShown = false;
       this.hiddenSubmit = false;
     }
+  }
+  
+  imageLoaded() {
+    this.viewPage = true;
   }
 }
