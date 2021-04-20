@@ -1,38 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>urbanwheels</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Odibee+Sans&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/f241085172.js"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156921348-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-156921348-1');
-  </script>
-
-  <link rel="stylesheet" href="styles.894d8f10718d51035a24.css">
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>urbanwheels - custom bike tours</title>
+    <meta name="description" content="urbanwheels - We provide customised motorbike tours through India and beyond.">
+    <meta name="author" content="">
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
 <body>
-  <app-root></app-root>
-  <script src="https://player.vimeo.com/api/player.js"></script>
-  <script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script>
-  <script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script>
-  <script src="polyfills-es5.ef4b1e1fc703b3ff76e3.js" nomodule defer></script>
-  <script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script>
-  <script src="main-es2015.576832f194d518bedbbe.js" type="module"></script>
-  <script src="main-es5.576832f194d518bedbbe.js" nomodule defer></script>
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+   <div class="content-wrapper">
+        <video autoplay muted loop id="urbanwheels-video-mountains" class="urbanwheels-video">
+            <source src="images/urbanwheels-mountains.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <video autoplay muted loop id="urbanwheels-video-spiti" class="urbanwheels-video">
+            <source src="images/urbanwheels-spiti.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="intro-wrapper">
+            <div class="text">
+                <p><span>...coming soon...</span></p>
+            </div>
+        </div>
+        <div class="logo-wrapper">
+            <figure>
+                <img src="images/urbanwheels-logo.svg" alt="urbanwheels logo">
+            </figure>
+        </div>
+        <div class="text-wrapper">
+            <div class="text">
+                <p><span>We provide customised motorbike tours through India and beyond.</span></p>
+            </div>
+        </div>
+        <div class="buttons-wrapper">
+            <a class="button-mail" href="mailto:urbanwheelscontact@gmail.com?Subject=Inquiry" title="Shoot us an email."></a>
+            <a class="button-insta" href="https://www.instagram.com/theurbanwheels/" target="_blank" title="Follow us on instagram."></a>
+        </div>
+    </div>
+    <div class="loader">
+   		<img src="images/loader.gif">
+   	</div>
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+<script type="text/javascript">
+const videos = document.querySelectorAll('.urbanwheels-video');
+var random = Math.floor(Math.random() * videos.length);
+
+console.log(random);
+
+Array.from(videos).forEach((video, i) => {
+
+  if (i == random) {
+    video.classList.add('active-video');
+  }
+
+});
+
+const videoElement = document.querySelector(".active-video");
+const content = document.querySelector(".content-wrapper");
+
+videoElement.addEventListener('loadeddata', (e) => {
+    //Video should now be loaded but we can add a second check
+
+    if (videoElement.readyState >= 3) {
+        content.classList.add('content-loaded');
+    }
+
+});
+
+</script>
 
 </html>
